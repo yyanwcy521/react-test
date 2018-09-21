@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSX-Function</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+    <style>
+        .lists{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        function action(item) {
+            return item.name + "" + item.age;
+        }
+        var element = <h1 className="lists">hello,{action({"name":"laolu","age":19})}</h1>    
+       
+        ReactDOM.render(
+            <div>
+              {element}
+            </div>,
+            document.getElementById("example")
+        );
+    
+
+
+    </script>
+</body>
+</html>

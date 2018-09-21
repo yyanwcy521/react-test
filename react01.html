@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        // ReactDOM.render(
+        //     <h1>Hello.world!</h1>,
+        //     document.getElementById("example")
+        // );
+        // var child1 = React.createElement("li",null,"1111");
+        // var child2 = React.createElement("li",null,"2222");
+        // var child3 = React.createElement("li",null,"3333");
+        // var str = React.createElement("ul",{className:"lists-ul"},child1,child2,child3);
+        // ReactDOM.render(
+        //     str,
+        //     document.getElementById("example")
+        // );
+        var flag = false;        var div1 = {
+            fontSize:"30px",
+            color:"#f60"
+        }
+        ReactDOM.render(
+            <ul className="lists-ul">
+                <li style={div1}>{flag==true?"111":"aaa"}</li>  
+                <li>bbb</li>
+                <li>ccc</li>  
+            </ul>,
+            document.getElementById("example")
+        );
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSX-Function</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+    <style>
+        .lists{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        // 通过类扩展来定义组件
+        // class HelloMessage extends React.Component{
+        //     render(){
+        //         return <h1>hello,{this.props.name}</h1>
+        //     }
+        // };
+
+        // const data= {
+        //     address:'shenzhen',
+        //     obj:{
+        //         name:'Saul'
+        //     }
+        // };
+
+        // 自定义组件第一个字母要大写
+        function Welcome(props) {
+            return <h1>hello,{props.abc}</h1>
+        };
+        const element = <Welcome abc="laolu"/>;
+
+        ReactDOM.render(
+            <div>
+            {element},
+             {/*<HelloMessage></HelloMessage>*/}
+             {/* <HelloMessage name={data.obj.name}/>,*/}
+            </div>,
+            document.getElementById("example")
+        );
+
+    </script>
+</body>
+</html>

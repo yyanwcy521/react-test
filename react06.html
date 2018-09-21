@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>componet-组合2</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+    <style>
+        .list1{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        const comment= {
+            date: new Date(),
+            text: "I hope you enjoy learning React!",
+            author:{
+                name: "laolu",
+                avatarUrl: "http://placekitten.com/g/64/64"
+            }
+        };
+        function formatDate(d){
+            return d.toLocaleDateString();
+        }
+
+        function Comment(props) {
+            return(
+            <div className="list1">
+                <div>
+                    {formatDate(props.data)}
+                </div>
+                <div>
+                    {props.text}
+                </div>
+                <div>
+                    <img src={props.author.avatarUrl} />
+                    <p>{props.author.name}</p>
+                </div>
+            </div>
+            )
+        };
+        ReactDOM.render(
+            <Comment data={comment.date} text={comment.text} author={comment.author} />,
+            document.getElementById("example")
+        );
+
+    </script>
+</body>
+</html>
