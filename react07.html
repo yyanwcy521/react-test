@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>componet-组合2</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/babel-standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+      class Hello extends React.Component{
+          constructor() {
+              super();
+
+              this.state = {
+                  flag:true
+              };
+          }
+
+          bindClick() {
+              this.setState({
+                  flag:!this.state.flag
+              });
+          };
+
+          render() {
+              return (
+                  <button onClick={this.bindClick.bind(this)}>
+                    {this.state.flag ? "打开" :"关闭"}
+                  </button>
+              );
+          }
+
+
+      };
+
+
+
+        ReactDOM.render(
+            <Hello />,
+            document.getElementById("example")
+        );
+
+    </script>
+</body>
+</html>
