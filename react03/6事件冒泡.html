@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/babel-standalone/babel.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script type="text/babel">
+        class Comp extends React.Component{
+            constructor(...args){
+                super(...args);
+            }
+            fn1(){
+                alert("father");
+            }
+            fn2(ev){
+                alert("children");
+                ev.nativeEvent.stopImmediatePropagation();
+            }
+            render(){
+               return <div onClick={this.fn1.bind(this)}>
+                    <div onClick={this.fn2.bind(this)}>qqq</div>
+                </div>
+            }
+        }
+
+        $(function(){
+            ReactDOM.render(
+                <Comp />,
+                $("#id1")[0]
+            )
+        })
+    </script>
+</head>
+<body>
+   <div id='id1'></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/babel-standalone/babel.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+   
+    <script type="text/babel">
+       class From extends React.Component{
+           constructor(...args){
+               super(...args);
+         
+           }
+           render(){
+               return <form action="https://www.baidu.com/" method="get">
+                    用户名:<input type="text" name="username" defaultValue="username"/> <br/>
+                    是否接受邮件:<input type="checkbox" defaultChecked="true"/> <br/>
+                    <input type="submit" value="提交按钮"/>
+
+                </form>
+           }
+            
+       }
+       $(function(){
+            ReactDOM.render(
+                <From />,
+                $("#div1")[0]
+            )
+        })
+       
+     
+    </script>
+</head>
+<body>
+   <div id="div1"></div>
+</body>
+</html>
+//  用户名:<input type="text" name="username" defaultValue="username"/> <br/>
+//  是否接受邮件:<input type="checkbox" defaultChecked="true"/> <br/>
+//  其中defaultValue和defaultChecked是正确的默认选择,没有default的话不行

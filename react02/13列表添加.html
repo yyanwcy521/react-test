@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/babel-standalone/babel.js"></script>
+    <script type="text/babel">
+        class Item extends React.Component{
+            constructor(...args){
+                super(...args);
+            }
+            render(){
+                return <li>{this.props.name}</li>
+            }
+        }
+        class List extends React.Component{
+            constructor(...args){
+                super(...args);
+                this.state = {
+                    arr:[1,2,3,4,5]
+                }
+            }
+            fn(){
+                this.setState({
+                    arr:this.state.arr.concat([Math.random()])
+                })
+            }
+            render(){
+                var result = [];
+                var arr = this.state.arr;
+                for(var i = 0; i<arr.length;i++){
+                    result.push(<Item key={i} name={arr[i]}/>);
+                }
+                
+                return <ul>
+                    <input type="button" value='button' onClick={this.fn.bind(this)} />
+                    {result}
+                </ul>
+            }
+        }
+        window.onload = function () {
+            var Odiv = document.getElementById('id1');
+            ReactDOM.render(
+                <List  />,
+                Odiv
+            )
+        }
+    </script>
+</head>
+<body>
+   <div id='id1'></div>
+</body>
+</html>

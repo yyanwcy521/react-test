@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/babel-standalone/babel.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <style>
+        img{
+          margin: 100px;
+          width: 400px;
+          height: 600px;
+        }
+    </style>
+    <script type="text/babel">
+       class LazyLoad extends React.Component{
+           constructor(...args){
+               super(...args);
+            //    alert(this.props.img);
+               this.ImgArr = this.props.imgs.split(',');
+              
+               const _this = this; 
+               window.onscroll = function(){
+                    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    console.log(scrollTop);
+
+                    // _this.refs["div2"].children 
+                }
+           }
+           render(){
+               var arr = [];
+               for(var i=0;i<this.ImgArr.length;i++){
+                   arr.push(<img key={i} data-src={'../img/'+this.ImgArr[i]} alt="logo"/>)
+               };
+               return <div ref="div2">{arr}</div>
+           }
+       }
+       $(function(){
+           ReactDOM.render(
+               <LazyLoad imgs="1.jpg,2.jpg,3.jpg"/>,
+               $("#div1")[0]
+           )
+       })
+    </script>
+</head>
+<body>
+   <div id="div1"></div>
+</body>
+</html>
